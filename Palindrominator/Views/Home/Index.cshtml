@@ -1,0 +1,32 @@
+﻿@model PalindromeModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="text" name="value" value="@Model.Value"/>
+        </p>
+        <p>
+            <input type="submit" value="Is this a palindrome?"/>
+        </p>
+        @if (Model.Result.HasValue)
+        {
+            <p>
+                @if (Model.Result.Value)
+                {
+                    <label>YES</label>
+                }
+                else
+                {
+                    <label>NO</label>
+                }
+            </p>
+        }
+    }
+
+</div>
